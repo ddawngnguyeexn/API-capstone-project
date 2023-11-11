@@ -12,13 +12,14 @@ class GetAPIServices
         }
         return await res.json();
     }
-    async getHouses() {
-        const res = await this.getResource("/houses/");
+    async getHouses(currentPage, postPerPages) {
+        const res = await this.getResource(`/houses?page=${currentPage}&pageSize=${postPerPages}`);
+        console.log('getHouses: ',res);
         return res.map(this.transformHouse)
     }
     async getCharacters(currentPage, postPerPages) {
         // const res = await this.getResource("/characters");
-        const res = await this.getResource("/characters?page=1&pageSize=20");
+        const res = await this.getResource(`/characters?page=${currentPage}&pageSize=${postPerPages}`);
         console.log('getCharacters: ', res);
         return res.map(this.transformCharacter);
     }

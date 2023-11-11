@@ -10,11 +10,11 @@ function Characters () {
     // const [pageNumber, setPageNumber] = useState(0);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPages, setPostPerPages] = useState(20);
+    const [postPerPages, setPostPerPages] = useState(30);
 
-    const lastPostIndex = currentPage * postPerPages; 
-    const firstPostIndex = lastPostIndex - postPerPages;  
-    const currentCharacters = characters.slice(firstPostIndex,lastPostIndex);
+    // const lastPostIndex = currentPage * postPerPages; 
+    // const firstPostIndex = lastPostIndex - postPerPages;  
+    // const currentCharacters = characters.slice(firstPostIndex,lastPostIndex);
 
     
     useEffect(()=>{
@@ -44,7 +44,7 @@ function Characters () {
             );
         });
     }
-    const items = renderItems(currentCharacters,({name,gender,culture})=>`${name} ${culture}(${gender})`);
+    const items = renderItems(characters,({name,gender,culture})=>`${name} ${culture}(${gender})`);
     return (
         // <div>
         //     {
