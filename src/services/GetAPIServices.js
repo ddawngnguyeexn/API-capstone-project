@@ -23,17 +23,28 @@ class GetAPIServices
         console.log('getCharacters: ', res);
         return res.map(this.transformCharacter);
     }
-    async getCharacter(id){
+    async getCharacter({id}){
         const character = await this.getResource(`/characters/${id}`);
         return this.transformCharacter(character)
     }
-    transformCharacter(char, i) 
+    async getNameCharacterByUrl(url){
+       const id = url.substring(url.search(/\d/),url.length);
+       console.log(id);
+       const character = await this.getCharacter(id);
+       return character.name; 
+    }
+    transformCharacter(char, getNameCharacterByUrl, i) 
     {
         return {
-          name: char.name || "no data :(",
-          gender: char.gender || "no data :(",
+          name: char.name ? char.name : char.aliases,
+          gender: (char.gender === "male"? "♂️":"♀️")|| "no data :(",
           culture: char.culture || "no data :(",
-          id: i + 41
+          url: char.url,
+          born: char.born || "no data :(",
+          died: char.died || "no data :(",
+          titles: char.titles || "no data :(",
+          father: char.father ? "function to get name" : "no data :("
+          // father: char.father ==="" ? "no data :(" : getNameCharacterByUrl(char.father)
         };
     }
     transformHouse(house, i) {
@@ -52,8 +63,7 @@ class GetAPIServices
           name: book.name,
           numberOfPages: book.numberOfPages,
           publisher: book.publisher,
-          released: book.released,
-          id: i + 1
+          released: book.released
         }
       }
 }
