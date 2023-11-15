@@ -45,6 +45,7 @@ function Characters () {
     function renderItems(arr,renderItem){
         return arr.map((item) => {
             // console.log(item.url);
+            // console.log(item);
             const id = findId(item.url);
             // console.log('findID: ',id);
             const itemDetails = renderItem(item);
@@ -54,11 +55,11 @@ function Characters () {
             );
         });
     }
-    const items = renderItems(characters,({name,gender,culture,father})=>
-        `NAME ${name} GENDER ${gender} CULTURE ${culture} FATHER ${father}`);
+    const items = renderItems(characters,({name,gender,culture})=>
+        `NAME ${name} GENDER ${gender} CULTURE ${culture}`);
     function handleClickOfCharacter (event, id)
     {
-      console.log(event);
+      console.log(event.target);
       navigate(`/character/${id}`);
     }
     return (

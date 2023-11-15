@@ -39,7 +39,7 @@ function Houses () {
             );
         });
     }
-    const items = renderItems(houses,({name})=>`${name}`);
+    const items = renderItems(houses,({name, titles})=>`NAME ${name} TITLES ${titles}`);
     return (
         <>
         <ul>

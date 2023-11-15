@@ -23,18 +23,20 @@ class GetAPIServices
         console.log('getCharacters: ', res);
         return res.map(this.transformCharacter);
     }
-    async getCharacter({id}){
+    async getCharacter(id){
         const character = await this.getResource(`/characters/${id}`);
         return this.transformCharacter(character)
     }
     async getNameCharacterByUrl(url){
        const id = url.substring(url.search(/\d/),url.length);
-       console.log(id);
+       console.log("second res", id);
        const character = await this.getCharacter(id);
        return character.name; 
     }
-    transformCharacter(char, getNameCharacterByUrl, i) 
+    transformCharacter(char) 
     {
+        // const charFa = getNameCharacterByUrl;
+        // const charFather = charFa.bind(char);
         return {
           name: char.name ? char.name : char.aliases,
           gender: (char.gender === "male"? "♂️":"♀️")|| "no data :(",
@@ -43,18 +45,17 @@ class GetAPIServices
           born: char.born || "no data :(",
           died: char.died || "no data :(",
           titles: char.titles || "no data :(",
-          father: char.father ? "function to get name" : "no data :("
-          // father: char.father ==="" ? "no data :(" : getNameCharacterByUrl(char.father)
+          father: char.father || ""
+          // father: char.father ==="" ? "no data :(" : charFa.call(char,char.father)
         };
     }
-    transformHouse(house, i) {
+    transformHouse(house) {
         return {
           name: house.name,
           region: house.region,
           words: house.words,
-          titles: house.titles,
+          titles: house.titles || "no data :(",
           ancestralWeapons: house.ancestralWeapons,
-          id: i + 1
         }
       }
     
