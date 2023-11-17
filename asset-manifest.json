@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/API-capstone-project/static/css/main.31d6cfe0.css",
+    "main.js": "/API-capstone-project/static/js/main.d7af3032.js",
+    "index.html": "/API-capstone-project/index.html",
+    "main.d7af3032.js.map": "/API-capstone-project/static/js/main.d7af3032.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.d7af3032.js"
+  ]
+}
