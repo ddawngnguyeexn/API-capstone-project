@@ -14,9 +14,10 @@ Ice and Fire Exploration
 ### API: 
     The app is pulling data from the API: Ice and Fire by Joakim Skoog. 
     API Documentation can be found here: https://anapioficeandfire.com/Documentation
-### 
+### Technology:
     The app is built using React JS. 
-    
+### Testing    
+    The app is tested by running the file app.test.js 
 
 
 # Getting Started with Create React App
