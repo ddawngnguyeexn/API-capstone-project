@@ -107,8 +107,8 @@ function Houses () {
         return (
         <div>
             <p>Name: {name}</p>
-            <p>Titles: {titles}</p>
-            <p onClick={handleClickOfIcon}>Current Lord: {currentLord}</p>
+            {titles && (<p>Titles: {titles}</p>)}
+            {currentLord && (<p onClick={handleClickOfIcon}>Current Lord: {currentLord}</p>)}
             {swornMembers && swornMembers.map((member, index) => (
              <p key={index} onClick={() => handleSwornMemberClick(member)}>
             SWORN MEMBER {index + 1}: {member}
