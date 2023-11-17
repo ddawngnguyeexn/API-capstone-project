@@ -66,7 +66,7 @@ class GetAPIServices
         return {
           url: house.url,
           name: house.name,
-          titles: house.titles || "no data :(",
+          titles: house.titles,
           currentLord: house.currentLord,
           swornMembers: house.swornMembers
         }

@@ -10,7 +10,7 @@ function Characters () {
     // const [pageNumber, setPageNumber] = useState(0);
     const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPages, setPostPerPages] = useState(50);
+    const [postPerPages, setPostPerPages] = useState(10);
 
     // const lastPostIndex = currentPage * postPerPages; 
     // const firstPostIndex = lastPostIndex - postPerPages;  
@@ -74,9 +74,10 @@ function Characters () {
         <ul>
             {items}
         </ul>
-        <Pagination 
-            totalPosts={characters.length}
-            postPerPages={postPerPages}    
+        <Pagination
+            totalPost = {characters.length} 
+            postPerPages={postPerPages}
+            setPostPerPages={setPostPerPages}    
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
         />

@@ -10,7 +10,7 @@ function Houses () {
     
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [postPerPages, setPostPerPages] = useState(30);
+    const [postPerPages, setPostPerPages] = useState(10);
     const navigate = useNavigate();
     
 
@@ -107,7 +107,8 @@ function Houses () {
         return (
         <div>
             <p>Name: {name}</p>
-            {titles && (<p>Titles: {titles}</p>)}
+            {titles && titles[0] === "" && (<p>No Title available.</p>)}
+            {titles && titles[0] !== "" && (<p>Titles: {titles}</p>)} 
             {currentLord && (<p onClick={handleClickOfIcon}>Current Lord: {currentLord}</p>)}
             {swornMembers && swornMembers.map((member, index) => (
              <p key={index} onClick={() => handleSwornMemberClick(member)}>
@@ -127,8 +128,9 @@ function Houses () {
             {items}
         </ul>
         <Pagination 
-            totalPosts={houses.length}
-            postPerPages={postPerPages}    
+            totalPost = {houses.length}
+            postPerPages={postPerPages}
+            setPostPerPages={setPostPerPages}    
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
         />
