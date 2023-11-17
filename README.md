@@ -1,16 +1,22 @@
-Title of website: Ice and Fire Exploration
-URL: https://ddawngnguyeexn.github.io/API-capstone-project
-A simple tool to explore the universe of Game of Thrones. 
-Features: Listing all Characters and Houses from the universe of Ice and Fire
+### Title of website 
+Ice and Fire Exploration
+### URL: https://ddawngnguyeexn.github.io/API-capstone-project
+### A simple tool to explore the universe of Game of Thrones. 
+### Features: 
+          Listing all Characters and Houses from the universe of Ice and Fire
           Detailes of each character: Name, Culture, Gender, Born, Died, Title, Father, Mother, Spouse, Allegiance
           Detailes of house: Name, Titles, Current Lord, Sworn Members
-Pages: 
+### Pages: 
     Home: General information about the Ice and Fire Exploration App
     Characters:  Listing all the Characters
         Click on each chacracter to go to Character page for more details
-    Houses: Listing all the Couses 
-The app is pulling data from the API: Ice and Fire by Joakim Skoog. 
-API Documentation can be found here: https://anapioficeandfire.com/Documentation
+    Houses: Listing all the Houses 
+### API: 
+    The app is pulling data from the API: Ice and Fire by Joakim Skoog. 
+    API Documentation can be found here: https://anapioficeandfire.com/Documentation
+### 
+    The app is built using React JS. 
+    
 
 
 # Getting Started with Create React App
