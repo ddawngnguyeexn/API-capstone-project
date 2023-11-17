@@ -27,12 +27,22 @@ class GetAPIServices
         const character = await this.getResource(`/characters/${id}`);
         return this.transformCharacter(character)
     }
+    async getHouse(id){
+      const house = await this.getResource(`/houses/${id}`);
+      return this.transformHouse(house)
+  }
     async getNameCharacterByUrl(url){
        const id = url.substring(url.search(/\d/),url.length);
        console.log("second res", id);
        const character = await this.getCharacter(id);
        return character.name; 
     }
+    async getNameHouseByUrl(url){
+      const id = url.substring(url.search(/\d/),url.length);
+      console.log("second res", id);
+      const house = await this.getHouse(id);
+      return house.name; 
+   }
     transformCharacter(char) 
     {
         // const charFa = getNameCharacterByUrl;
@@ -45,17 +55,20 @@ class GetAPIServices
           born: char.born || "no data :(",
           died: char.died || "no data :(",
           titles: char.titles || "no data :(",
-          father: char.father || ""
+          father: char.father || "",
+          mother: char.mother || "",
+          spouse : char.spouse || "",
+          allegiances: char.allegiances || ""
           // father: char.father ==="" ? "no data :(" : charFa.call(char,char.father)
         };
     }
     transformHouse(house) {
         return {
+          url: house.url,
           name: house.name,
-          region: house.region,
-          words: house.words,
           titles: house.titles || "no data :(",
-          ancestralWeapons: house.ancestralWeapons,
+          currentLord: house.currentLord,
+          swornMembers: house.swornMembers
         }
       }
     
